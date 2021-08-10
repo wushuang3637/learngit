@@ -1,5 +1,3 @@
-git is free softwaregit is a distributed version controlgit not
-git is a distributed version control system.
-git is free software distributed under the GPL.
-git has a mutable index called stage.
-git tracks changes.
+vim删除所有内容：%d.
+文件夹打开：alt+向左；折叠：alt+向右。
+
