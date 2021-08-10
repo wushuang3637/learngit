@@ -1,0 +1,80 @@
+复习:
+
+IO流: java对文件一系列操作,(读取 I 写入 O
+文件的属性  文件字节  文件名  路径  创建 删除)
+javaIO流:  提供了操作文件的类 称之为流
+
+IO流分类:
+流向:  输入 输出
+单位:  字符 字节
+功能:  节点 处理
+
+字节和字符的区别?
+字节流:按照字节读取内容，可以读取和写入任何资源
+但是读取 文本内容会出现乱码
+字符流: 按照字符读取内容  非常适合读取文本内容
+
+四大父类:
+字节输入  输出:  InputStream  OutputStream
+字符输入  输出:  Reader      Writer
+
+File 类:  属于java.io 包  是用于实现对文件的和目录的一些基本操作
+可以获取文件、目录属性  唯独不可以用于读取和写入
+============================================================
+File常用方法
+exists: 判断文件是否存在
+mkdir:  创建目录  如果父级不存在 会不成功
+mkdirs: 创建目录  如果父级不存在  会逐层创建
+createNewFile:  创建文件    出现检查性异常  IOException
+delete:  删除文件   只能删除空目录或者文件
+isFile:  判断是否是文件
+isDirectory: 判断是否是目录
+getName:  文件名
+getPath:  相对路径 相对文件当前目录 去定位查找目标文件
+getAbsolutePath: 写的文件完整路径
+file.renameTo(newFile):  将file文件 移动 到另一个地址newFile
+listFile: 返回file下面所有子文件或者目录  返回值File[]
+list:  返回file 下面所有文件名     返回值String[]
+length:  获取文件字节数量 大小
+         UTF-8 一个汉字 3个字节   GBK 一个汉字  2个字节
+
+
+FileInputStream 类  是字节输入流 通过字节为单位读取文件
+read(); 读取一个字节
+read(byte数组);  每次读取了一个数组的长度
+并且将读取的数据存入数组
+close: 关闭流 关闭资源
+
+FileOutputStream  类 是字节输出流  通过字节为单位写入文件
+write(字节): 写入一个字节
+write(byte数组): 写入一个字节数组
+close(): 关闭流 关闭资源
+flush(): 清空缓存   一般处理流会使用它
+
+按照功能分类 可以节点和处理流
+节点流:  表示可以从某一节点读取数据 或 向某一个节点写入数据
+         FileInputStream  FileOutputStream  FileWriter FileReader
+处理流:  是已经存在的流做了封装, 实现更加丰富的流数据的处理方式
+可以极大提高了读写效率  一般情况下 处理流的构造方法需要填写别的节
+点流对象  如: 缓冲流  BufferedInputStream BufferedOutputStream
+                      BufferedReader  BufferedWriter
+
+为什么缓冲流可以提高读写效率？
+1. 不使用缓冲流读写的方式: 他读取一个字节或者一个数组，就会向
+指定的路径写入数据,所以 对于的磁盘访问次数过多，会减少磁盘寿命
+而且访问本地磁盘的速度是很慢的
+2. 使用缓冲流读写的方式: 读取一个字节或者一个数组  不会立即去写入
+而是先保存在缓冲区域(内存), 等凑够了缓冲流最大脑容量 才会一次性的
+写入进去, 可以减少对磁盘读取次数  降低了消耗  还提高了效率
+因为访问内存速度高于本地的磁盘速度
+
+缓冲流: 属于处理流
+BufferedInputStream
+BufferedOutputStream
+
+
+
+
+
+
+

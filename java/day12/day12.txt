@@ -1,0 +1,83 @@
+复习:
+日期
+1.Date 日期对象
+Date d=new Date();
+==>需要格式化日期  SimpleDateFormat
+SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+sdf.format(d);// Date==>String
+sdf.parse("2012-10-12 23:10:20");// String==>Date
+
+2.Calender日历对象
+创建一个日历对象
+Calender cal=Calender.getInstance();
+//设置时间
+cal.setTime(new Date());
+//通过get(使用日历对象封装常量)
+cal.get(Calender.DAY_OF_YEAR); //获取一年中的第几天
+cal.get(Calender.XXX);
+
+cal.add  运算时间
+cal.add(Calender.DAY_OF_YEAR,10); //10天后
+cal.add(Calender.MONTH,2); //2月后
+
+
+记录当前系统时间毫秒数
+long time=System.currentTimeMillis();
+
+3.LocalDate  是JDK 1.8 支持日期类型
+ instant        表示时间戳
+ 1---LocalDate      表示 年-月-日  格式固定的
+ 2---LocalTime      表示 时:分:秒  格式固定的
+ 3---LocalDateTime    表示 年-月-日 时:分:秒
+ 1-3种使用情况 都是类似的  具体使用哪个类型需要看 项目业务需求
+
+4. 1-3种 日期  通用方法
+获取
+getYear()  获取当前日期年
+...getMonth()
+getMonthValue() : 获取当前日期月份， 返回值指定那个月
+getDayOfWeek() :  获取当前日期的星期几   类似日历对象中的常量
+getDayOfYear() :  获取一年中第几天
+...
+修改日期
+withYear()   修改年
+withMonth()  修改月
+withDayOfMonth()  修改一月第几天
+with()    修改星期  参数是枚举
+...
+
+加减日期
+plusYears(参数)   可以增加几年
+plusWeeks(10)    增加10周
+plusXXX()   可以增加几XXX
+
+减法不需要学习
+plusYears(-10)   减少10年
+minusYears(10)   减少10年
+
+
+until  用于计算两个日期时间差
+日期1.until(日期2).getyears()  获取日期2-日期1的时间
+                   getXXX()
+
+localDate对象.of(年,月,日);
+String===>LocalDate
+localDate对象.parse(String)
+
+//Date===>LocalDate
+Date d=new Date();
+Instant ins=d.toInstant();  //通过日期创建时间戳对象
+//设置时区   （获取系统默认时区）
+LocalDate newld=ins.atZone(ZoneId.systemDefault()).toLocalDate();
+
+//LocalDate ==>Date
+//获取时区
+ZoneId zone=ZoneId.systemDefault();
+//获取时间戳
+Instant ins2=newld.atStartOfDay().atZone(zone).toInstant();
+Date d2=Date.from(ins2);
+
+
+
+
+

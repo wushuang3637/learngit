@@ -1,0 +1,114 @@
+基础题
+1.要求："34 9 -1 78 3 22  "对字符串中的数值 或者
+字符串内容 进行从大到小的排序
+String str="34 9 -1 78 3 22 za aa AB bz CC  CA bb"
+String[] strs=str.split(" ");
+for(int i=0;i<strs.length-1;i++){
+    for(int j=i;j<strs.length;j++){
+        if(strs[i].compareTo(strs[j])<0){
+            String temp=strs[i];
+            strs[i]=strs[j];
+            strs[j]=temp;
+        }
+    }
+}
+2. 5元一瓶    50元购买多少瓶啤酒   2个空瓶换购一
+瓶    一共可以买多少瓶啤酒
+num=10+5+2+1+1    +1(借的)
+50/5=10
+10/2=5
+
+20
+int n=10;// 空瓶
+        int num=10;//  总共啤酒数
+        while(n>1){
+            num+=n/2;
+            n=n/2+n%2;
+        }
+System.out.print(num);
+
+3. 把一个字符串的大写字母放到字符串的后面  其他字符位置不变
+如:BkleAiCeilD   ==> kleieilBACD
+String str="AkleBiCeilD";
+for(int i=0;i<str.length();i++){
+    for(char c='A';c<='Z';c++){
+        str.charAt(i)==c
+    }
+}
+
+选做题:
+1.输入自己生日，计算出您几岁了？
+2.找出下个月倒数第三天是哪一天?
+3.输入小王和小李生日， 求出他们相差几年  几月   几日?
+
+=========================================================
+java 常见的类
+一、八种基本类型
+1. byte  short int long  默认值  0
+2. float  double    默认值 0.0
+3. char   boolean  默认  ''   false
+java还对基本类型做了封装  这样就可以把基本类型当做对象处理
+就可以使用他们封装好的 属性和方法
+1. Byte  Short  Integer  Long
+2. Float  Double
+3. Character   Boolean
+这八种封装类 默认值统一都是按照对象处理   都是null
+
+<form> 文本框 密码框  提交按钮   ===> 提交给服务器数据 一般都 String
+所以需要通过String 转换其他类型
+
+八种类型转换  都是差不多  Integer 为例
+String===>Integer   之间的相互转换
+String str="123";   "abc" 无法转换数字  运行会出现错误
+Integer a=Integer.parseInt(str);
+int a=Integer.parseInt(str);      //默认返回值 int
+
+Integer a=Integer.valueOf(str);   //默认返回值  Integer
+int a=Integer.valueOf(str);
+
+Integer===>String
+int a=123;
+String str=a+"";             -----1
+String str=Integer.toString(a);  ---2
+String str=String.valueOf(a);    ---3
+
+二、数学类  Math
+生成随机数
+1.Math.random()  生成0-1随机数   double  0.4335345345345
+2.Random r=new Random();
+  r.nextInt(10)  ===>  0-9 随机整数 这样就不用类型转换了
+
+Math.ceil()   向上
+Math.floor()  向下取舍
+
+Math.sqrt(a)   求a 的平方根  2的2次方=4    4的平方根就是2
+Math.cbrt(a)   求a 的立方根  2的三次方=8    8的立方根就是2
+Math.pow(a,b)  求 a 的b 次方
+Math.abs(a)   求a 的绝对值    |-10| =10     |10|=10
+Math.round()   四舍五入  取整
+
+参考  java 菜鸟教程
+https://www.runoob.com/java/java-tutorial.html
+
+三、日期对象
+1. java .util . Date 对象
+2. Calender 日历对象
+3.jdk1.8  LocalDate 新日期类型
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

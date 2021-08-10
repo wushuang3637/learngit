@@ -1,0 +1,85 @@
+复习:
+Collection集合父接口
+      List 集合   元素重复  有顺序
+      Set  集合   元素是唯一  无序
+Map集合   key-value  元素中key 是唯一的   无序
+
+List实现类  面试题
+ArrayList     数组实现     查询快增删慢   线程不安全   运行效率快
+默认10位  每次1.5倍   10*基数（0.8 0.75）
+LinkedList    链表实现     查询慢增删快   线程不安全   运行效率快
+Vector        数组实现     查询快增删慢   线程安全的   运行效率慢
+
+Set实现类  面试题
+hashSet: 底层实现HashMap  基于 数组+链表+红黑树  每个元素都会哈希桶(数组)
+         先通过== 是不是同一个对象  再hashCode是否一致
+         如果不一致 放入新的桶中  如果一致的话  再判断
+         equals   如果一样   就直接替换   如果不同  会在
+         桶的下面拼一个链表  链表长度超过8变红黑树   红黑树小于
+         6 变回链表
+TreeSet: 底层实现TreeMap   是可以有顺序集合  针对基本类型 支持自然排序、
+对于String  按位数排序  针对于对象 默认不能排序(需要实现比较器对象)
+
+比较器对象区别?
+Comparator: 外部   不用修改类  但是单独定义一个类实现Comparetor接口
+重写方法 Compare()   也可以匿名内部类   lambda表达式实现   所以比较灵活
+Comparable: 内部   在类的内部实现一个Comparable 重写CompareTo()
+
+Map实现类  面试题
+HashMap:  类似于HashSet   key和value 允许为null   线程不安全  效率高
+           扩容机制:  默认16位   每次扩容2倍
+HashTable:   key和value都不允许为null    线程安全   效率低
+           扩容机制: 默认11位   每次扩容2倍+1
+TreeMap:  类似于TreeSet
+
+遍历:
+List:   常规for    增强for   迭代器
+set: 增强for   迭代器
+map: 增强for   迭代器
+Map m=new HashMap();
+for(Object o:m.keySet()){
+    Object value=m.get(o);
+}
+
+Iterator it=m.keySet().iterator();
+while(it.hasNext()){
+    Object key=it.next();
+    Object value=m.get(key);
+}
+
+Object 类:java所有类的父类
+class A{
+}
+Object常用方法:
+toString(): 转换字符串
+equals(): 大部分都是跟==是一个效果
+          Integer比较特殊，底层实现也是==  只不过它有一个保存范围
+          -128 ~127  如果超过这个范围  它会创建一个新对象去保存
+          String 比较特殊, 因为他重写了equals（） 自己定义了新规则
+          ....... ==  参数类型  里面值是否一致（先判断hashCode 再判断值是否一致）
+
+hashCode: 对象的基本特征  一般是32位二进制构成
+三种基本分类：
+Integer类 :保存对应的数值  new Integer(1234)  hashCode=1234
+Object类: 保存对象的引用地址 计算的数值
+String类: 字符串包含的内容 通过算法计算的数值
+
+创建对象方式:4种
+1. new  2.克隆  3.反射  4.反序列化
+哪些会调用构造方法:
+会:1.new   2.反射
+不会:1.克隆:  在堆内存把存在的对象重新 拷贝一份
+     2.反序列化:   把原来生成的本地文件  生成一个java对
+     象
+Clone(): 克隆对象  正常克隆的可以所有基本类型和String类型 全部拷贝
+     如果对象里存在一些引用类型的属性则默认不会克隆
+
+克隆分两种情况:1. 浅克隆  2.深克隆
+
+1.浅克隆: 指针对基本类型和String的克隆 而引用类型默认不考虑
+步骤:1. 实现Cloneable接口   2.重写 clone()方法
+
+2.深克隆: 无论什么类型(基本 string 引用)都要事先克隆
+步骤: 1. 实现Cloneable接口   2.重写 clone()方法
+      3.对象里面的引用类型也要 实现Cloneable接口 重写clone()方法
+      4.对象里面的引用类型里面也有引用类型 也要重复第三部...

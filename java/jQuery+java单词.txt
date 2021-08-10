@@ -1,0 +1,91 @@
+Java关键字单词
+public  公开的
+class    类
+static   静态的
+void     没有返回值类型
+main    主方法
+System 系统的
+print     打印
+byte      比特
+short      短的
+int          
+long       长的
+float        单精度
+double    双精度
+char        字符
+boolean    布尔
+String       字符串
+Scanner     控制台输入对象
+nextInt()         控制台获取整数
+nextDouble()    控制台获取浮点数
+next()            控制台获取字符串
+hasNextInt()  判断输入的是否 是整数
+DecimalFormat  数字格式化
+math                数学
+random           随机
+equals            判断字符串相等
+import           导入
+Arrays.sort()      数组自动排序
+protected       受保护的
+private            私有的
+constructor       构造方法
+overload          重载
+override           覆盖/重写
+extends            继承
+method            方法
+abstract            抽象的
+final                 最终的
+interface          接口
+implements     实现
+equals()      判断两个字符串的值是否一致
+equalsIgnoreCase()    判断字符串的值是一致 不区分大小写
+trim()           去除字符串的两端空格  中间的空格不受影响
+getBytes()     通过字符串转换成字节数组
+toCharArray()  通过字符串转换成字符数组
+contains()    判断字符串是否包含指定字符  返回值 boolean
+startsWith("")  判断字符串是否以指定内容开头
+endsWith("")    判断字符串是否以指定内容结束
+replaceAll("字符串1","字符串2") : 将字符串内容1 全部替换成内容2
+concat("")  用于拼接字符串  类似于  ""+""
+StringBuilder  增强型String
+StringBuffer    增强型String
+append()    追加字符串
+compareTo()   比较
+insert()           插入
+replace()         替换  
+delete()           删除
+Integer                整型
+Character            字符
+Date                     日期
+SimpleDateFormat    日期格式化
+Calendar             日历对象
+Throwable        错误和异常父类
+Error                   错误
+Exception       异常的父类
+RuntimeException   运行时异常
+throw            抛出
+try                尝试
+catch             捕获
+finally             总是执行
+Collection      集合父类
+Collections    集合工具类
+List                list集合
+ArrayList
+LinkedList     
+Set      set集合
+HashSet  
+TreeSet
+Map    map集合
+HashMap  
+HashTable
+TreeMap
+
+
+
+
+
+
+
+
+
+

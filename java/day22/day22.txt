@@ -1,0 +1,73 @@
+基础题:
+1.从磁盘读取一个文件到内存中，再打印到控制台
+2.通过输入输出流实现 拷贝一张图片，从一个目录到另外一个目录下
+选做题:
+1.统计一个文件testIO.txt  中字母'A'和'a'出现的总次数
+2.统计一个文件testIO.txt  中各个字母出现次数：
+     * A(8),B(16),C(10)...,a(12),b(10),c(3)....，括号内
+     代表字符出现次数;
+      统计结束后写入到一个result.txt中显示结果
+3.通过复制文件的原理:  实现复制整个目录的文件
+
+=========================================================
+字符流: 非常适合读取本文内容 因为每次是按照字符为单位 读取和
+写入数据  如果是中文 一个汉字就是一个字符  不会出现乱码
+
+FileReader:属于字符输入流
+read() :读取一个字符
+read(数组) : 读取一个字符数组
+close()
+FileWriter:属于字符输出流
+write():
+write(数组)
+write(string)
+close()
+flush()
+
+BufferedReader 和 BufferedWriter 字符缓冲流
+可以有一个新的读取方式   可以 直接读取String出来
+bw.readLine()  返回一整行的字符串数据
+
+
+
+字节流转字符流？
+InputSteamReader    继承  Reader
+OutputSteamWriter   继承  Writer
+他们两者都属于字符流
+使用方式类似于 缓冲流
+new InputStreamReader(字节流)
+
+序列化和反序列化---面试题 概念和代码
+序列化: 将java中的对象(对象 数组 集合) 转换成字节序列的过程
+(Java的对象转换成本地文件)  字节流ObjectOutputStream
+
+反序列化: 将本地文件转换成java中的对象  字节流ObjectInputStream
+
+程序应用场景: 保存数据（对象 集合....） ---->数据库
+
+实现序列化对象有很多前提 需要实现一个序列化接口，
+只是用于标记该类可以被序列化  没有任何功能 如果没有实现
+出异常 NotSerializableException
+实现序列化有一个隐式属性 UID  (unique id)  如果序列化和反序列化
+两者的uid不一致 会出现异常   InvalidClassException
+
+序列化的时候 几种特殊情况 不会被序列化
+   1. static 静态的资源不会序列化
+   2. transient  表示忽略   也不会序列化
+
+实现用户注册和登录
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

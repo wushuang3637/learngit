@@ -1,0 +1,112 @@
+基础题
+1.使用两种方式  编写一个单例模式  手写拍照
+1. 饿汉式 或者懒汉式      冒泡  选择  插入  二分查找
+public class Test1{
+    private Test1(){}
+    private static Test1 t1;
+    public static Test1 getObject(){
+        if(t1==null)  t1=new Test1();
+        return t1;
+    }
+}
+2.枚举 完整版
+public class Test2{
+    private Test2(){}
+    public static Test2 getObject(){
+        return Abc.INSTRANCE.t2;
+    }
+    private enum Abc{
+        INSTRANCE;
+        private Test2 t2;
+        private Abc(){
+            t2=new Test2();
+        }
+    }
+}
+2.编写程序将 “jdk” 全部变为大写,并输出到屏幕,
+截取子串”DK” 并输出到屏幕
+String jdk="jdk";
+jdk=jdk.toUpperCase();
+System.out.print(jdk);
+jdk=jdk.subString(1);
+System.out.print(jdk);
+3.编写一个方法将String字符串进行反转(”test” 变为 “tset”);
+4. 写一个方法判断一个字符串是否对称(对称是正反都一样的)
+5.String s="name=zhangsan  age=18  classNo=090728";
+将上面的字符串拆分，结果如下:
+zhangsan 18  090728
+
+选做题
+1.给定一个字符串,判断该字符串中是否包含某个子串.如果包含,求出子串的所有出现位置.
+如:"abcbcbabcb34bcbd"中,"bcb"子串的出现位置为: 1,7,12.字符串和子串均由用户输入
+
+2.给定一个长度,随机产生一个该长度的字符串,由大写,小写字母以及数字组成
+
+3.给定一个由数字组成的字符串,如:"1239586838923173478943890234092",统计
+出每个数字出现的次数
+
+===============================================================
+复习:
+设计模式:
+
+工厂:  相当于对创建对象做了封装 这样对外屏蔽创建对象逻辑安全性较高
+       1. 普通工厂   2.多工厂
+       3.静态工厂: 定义一个工厂类   里面提供多个静态方法 实现同一类
+       对象的创建
+代理:  创建对象并不是直接创建  通过代理对象帮我创建
+       代理对象在创建对象时 在前后 做一些增强处理
+       这样程序不会受到影响 同时又增加额外的功能
+
+观察者模式:  类似于微信公众号，  对象和对象存在1对多依赖关系
+当1的一方修改了数据 多的一方都会收到数据
+
+内存分类:
+1.堆： 对象 数组 集合 等(new 对象)
+2.栈： 局部变量 和对象引用
+3.方法区:  类的信息 静态变量 常量
+4.常量池: 方法区一部分  主要用于存储常量
+
+String 字符串  特殊引用类型   底层实现 final修饰char数组
+所以一旦赋值不可以改变
+String s="abc";  s="123" s指向了 新的常量  abc 常量依旧存在
+
+String方法
+
+equals()
+equalsIgnoreCase()
+startsWith
+endsWith
+trim
+contains()
+concat()
+replaceAll
+getBytes()
+toCharArray()
+
+因为通过String 对字符串做大量修改 浪费资源  每次改变都会在常量池
+都会定义新的常量   所以这种情况不推荐使用String
+可以使用增强型String
+因为StringBuffer和StringBuilder 底层char[] 不是final修饰
+所以每次对字符串修改 只是原来的数组中去改变  就不会浪费资源
+1.StringBuilder  常用
+  StringBuider s=""; 错误的
+  StringBuilder sb=new StringBuilder(""); //正确的
+  sb.常用方法()
+  sb.append() 追加字符串
+  sb.toString(); 转换成String
+  sb.delete(0,5);  删除指定区间字符串 0-4
+  sb.insert(下标,"内容")     在指定位置新增内容
+  sb.replace(开始下标,结束下标,"内容")    在指定区间替换内容
+  sb.reverse()  可以实现字符串反转
+
+2.StringBuffer
+
+3.StringBuilder和StringBuffer 区别
+StringBuilder  线程不安全的   运行效率更快   常用的
+StringBuffer   线程安全的     运行效率更慢
+
+String的排序  先比较第一位  第一位相同比较第二位 ...
+aaa  z  bcd abc efg  排序前
+aaa  abc  bcd efg z  排序后
+compareTo()  用于比较String 前后顺序
+
